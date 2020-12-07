@@ -5,11 +5,19 @@
  */
 package librarymanagementvibhanshu;
 
+
+// Importing the swing libraries
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
 /**
  *
  * @author the_looser
  */
-public class Librarymanagementvibhanshu {
+public class Librarymanagementvibhanshu extends JFrame implements ActionListener{
+    
+    JLabel l1;
+    Jbutton b1;
 
     /**
      * @param args the command line arguments

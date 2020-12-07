@@ -10,9 +10,10 @@ package librarymanagementvibhanshu;
  * @author the_looser
  */
 
-// This class is used for creating connection JDBC 
-
 import java.sql.*;
+// This class is used for creating connection JDBC
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
 
 public class conn {
     Connection c;
