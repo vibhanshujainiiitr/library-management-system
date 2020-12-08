@@ -128,7 +128,7 @@ public class login extends JFrame implements ActionListener {
     			{
     				this.setVisible(false);
     				// Making this frame as not visible
-    				new Loading().setVisible(true);
+    				new loading().setVisible(true);
     				// Making this frame as visible
     				
     			}
