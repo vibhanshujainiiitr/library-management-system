@@ -35,7 +35,7 @@ public class loader extends JFrame implements Runnable {
 	}
 	
 	// Constructor for this class
-	public loading()
+	public loader()
 	{
 		// This is necessary to add the heading of the pannel
 		super("Loading ...");
@@ -47,23 +47,23 @@ public class loader extends JFrame implements Runnable {
 		JPanel window = new JLabel("LMS by Vibhanshu Jain");
 		window.setForeground(Color.cyan);
 		window.setBounds(130, 46, 500, 35);
-		contentPane.add(window);
+		content.add(window);
 		
 		// Creating a new object for progress bar using swing function 
 		bar = new JProgressBar();
 		bar.setStringPainted(true);
-		contenPane.add(bar);
+		content.add(bar);
 		
 		// One more new object is created
 		JLabel wait = new JLabel("Please wait ...");
 		wait.setForeground(Color.cyan);
 		wait.setBounds(200, 165, 150, 20);
-		contentPane.add(wait);
+		content.add(wait);
 		
 		JPanel new_panel = new JPanel();
 		new_panel.setBackground(Color.cyan);
 		new_panel.setBounds(0, 0, 590, 390);
-		contentPane.add(new_panel);
+		content.add(new_panel);
 		
 		
 		setUploading();
@@ -82,8 +82,9 @@ public class loader extends JFrame implements Runnable {
 				int b = bar.getValue();
 				
 				if( b < a )
-				{
-					bar.setValue( );
+				{	
+					// Setting the value of bar to increase by one
+					bar.setValue( bar.getValue() + 1 );
 				}
 				
 				else 
@@ -94,6 +95,7 @@ public class loader extends JFrame implements Runnable {
 					 new home().setVisible(true);
 				}
 				
+				// Sleeping the thread for 50 ms
 				Thread.sleep(50);
 			}
 		}
