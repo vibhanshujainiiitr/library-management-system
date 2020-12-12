@@ -72,7 +72,7 @@ public class student extends JFrame {
 		editDetails.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		editDetails.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			editStudents.main(new String[]{});
+			editStudent.main(new String[]{});
 			mainframe.dispose();
 			}
 		});
@@ -85,7 +85,7 @@ public class student extends JFrame {
 				mainframe.dispose();
 			}
 		});
-		JButton btnhome = new JButton("btnhome");
+		JButton btnhome = new JButton("Home");
 		btnhome.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnhome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

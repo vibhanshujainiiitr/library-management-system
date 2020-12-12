@@ -9,9 +9,9 @@ import java.awt.event.*;
 import com.mysql.*;
 import java.sql.*;
 
-public class newStudent extends JFrame {
+public class searchStudent extends JFrame {
 	
-	static newStudent mainframe;
+	static searchStudent mainframe;
 	private JPanel contentPane;
 	private JTextField name_field;
 	private JTextField rollNo_field;
@@ -30,7 +30,7 @@ public class newStudent extends JFrame {
 			{
 				try
 				{
-					mainframe = new newStudent();
+					mainframe = new searchStudent();
 					mainframe.setVisible(true);
 				}
 				catch (Exception e) 
@@ -42,7 +42,7 @@ public class newStudent extends JFrame {
 	}
 	
 	// The main frame
-	public newStudent()
+	public searchStudent()
 	{
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(400, 400, 600, 550);
@@ -50,9 +50,9 @@ public class newStudent extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel labelNewStudent = new JLabel("Add new student");
-		labelNewStudent.setForeground(Color.GRAY);
-		labelNewStudent.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		JLabel labelsearchStudent = new JLabel("Add new student");
+		labelsearchStudent.setForeground(Color.GRAY);
+		labelsearchStudent.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		
 		JLabel labelname = new JLabel("Name");
 		JLabel labelrollNumber = new JLabel("Roll No.");
@@ -95,7 +95,7 @@ public class newStudent extends JFrame {
 				try
 				{
 					Connection con = database.getConnection();
-					PreparedStatement student = con.prepareStatement("insert into student(name, rollno, studentclass, section, contact, issuedbooks) values(?,?,?,?,?,?");
+					PreparedStatement student = con.prepareStatement("select student class,section,contact from student where name=? ");
 					
 					student.setString(1, name);
 					student.setString(2, rollNo);
@@ -113,14 +113,14 @@ public class newStudent extends JFrame {
 				
 				if(i>0)
 				{
-					JOptionPane.showMessageDialog(newStudent.this,"New student is added to the records");
+					JOptionPane.showMessageDialog(searchStudent.this,"New student is added to the records");
 					student.main(new String[]{});
 					mainframe.dispose();
 					
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(newStudent.this,"Sorry, we are not able to please. Please try again !");
+					JOptionPane.showMessageDialog(searchStudent.this,"Sorry, we are not able to please. Please try again !");
 				}
 				
 				/* 
@@ -153,7 +153,7 @@ public class newStudent extends JFrame {
 						.addGroup(mainLayout.createParallelGroup(Alignment.LEADING)
 							.addGroup(mainLayout.createSequentialGroup()
 								.addGap(150)
-								.addComponent(labelNewStudent))
+								.addComponent(labelsearchStudent))
 							.addGroup(mainLayout.createSequentialGroup()
 								.addGap(30)
 								.addGroup(mainLayout.createParallelGroup(Alignment.LEADING, false)
@@ -182,7 +182,7 @@ public class newStudent extends JFrame {
 			mainLayout.setVerticalGroup(
 				mainLayout.createParallelGroup(Alignment.LEADING)
 					.addGroup(mainLayout.createSequentialGroup()
-						.addComponent(labelNewStudent)
+						.addComponent(labelsearchStudent)
 						.addGap(50)
 						.addGroup(mainLayout.createParallelGroup(Alignment.BASELINE)
 							.addComponent(labelname)
@@ -212,7 +212,7 @@ public class newStudent extends JFrame {
 			contentPane.setLayout(mainLayout);
 	}
 	/*
-	 * Public class newStudent ended here
+	 * Public class searchStudent ended here
 	 */
 	
 	

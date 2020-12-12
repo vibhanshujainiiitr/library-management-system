@@ -9,18 +9,15 @@ import java.awt.event.*;
 import com.mysql.*;
 import java.sql.*;
 
-public class newStudent extends JFrame {
+public class editStudent extends JFrame {
 	
-	static newStudent mainframe;
+	static editStudent mainframe;
 	private JPanel contentPane;
 	private JTextField name_field;
 	private JTextField rollNo_field;
 	private JTextField studentClass_field;
 	private JTextField section_field;
 	private JTextField contact_field;
-	
-	private JTextField issuedBook;
-	/* Confused that whether to add here or not */
 	
 	// The main application
 	public static void main (String[] args)
@@ -30,7 +27,7 @@ public class newStudent extends JFrame {
 			{
 				try
 				{
-					mainframe = new newStudent();
+					mainframe = new editStudent();
 					mainframe.setVisible(true);
 				}
 				catch (Exception e) 
@@ -42,7 +39,7 @@ public class newStudent extends JFrame {
 	}
 	
 	// The main frame
-	public newStudent()
+	public editStudent()
 	{
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(400, 400, 600, 550);
@@ -50,15 +47,15 @@ public class newStudent extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel labelNewStudent = new JLabel("Add new student");
-		labelNewStudent.setForeground(Color.GRAY);
-		labelNewStudent.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		JLabel labeleditStudent = new JLabel("Edit Student");
+		labeleditStudent.setForeground(Color.GRAY);
+		labeleditStudent.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		
 		JLabel labelname = new JLabel("Name");
 		JLabel labelrollNumber = new JLabel("Roll No.");
-		JLabel labelclass = new JLabel("Class");
-		JLabel labelsection = new JLabel("Section");
-		JLabel labelcontact = new JLabel("Contact");
+		JLabel labelclass = new JLabel("Class (New) ");
+		JLabel labelsection = new JLabel("Section (New) ");
+		JLabel labelcontact = new JLabel("Contact (New) ");
 		
 		name_field = new JTextField();
 		name_field.setColumns(20);
@@ -75,7 +72,7 @@ public class newStudent extends JFrame {
 		contact_field = new JTextField();
 		contact_field.setColumns(20);
 		
-		JButton btnAddStudent = new JButton("Add Student");
+		JButton btnAddStudent = new JButton("Edit");
 		btnAddStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = name_field.getText();
@@ -89,20 +86,19 @@ public class newStudent extends JFrame {
 				 */
 				
 				/*
-				 * Adding the new student to the database
+				 * Editing the new student to the database
 				 */
 				int i = 0;
 				try
 				{
 					Connection con = database.getConnection();
-					PreparedStatement student = con.prepareStatement("insert into student(name, rollno, studentclass, section, contact, issuedbooks) values(?,?,?,?,?,?");
+					PreparedStatement student = con.prepareStatement("update student set studentClass=?, section=?, contact=? where rollNo=? & name=?");
 					
-					student.setString(1, name);
-					student.setString(2, rollNo);
-					student.setString(3, studentClass);
-					student.setString(4, section);
-					student.setString(5, contact);
-					student.setString(6, null );
+					student.setString(1, studentClass);
+					student.setString(2, section);
+					student.setString(3, contact);
+					student.setString(4, rollNo);
+					student.setString(5, name);
 					i = student.executeUpdate();
 					con.close();
 				}
@@ -113,14 +109,14 @@ public class newStudent extends JFrame {
 				
 				if(i>0)
 				{
-					JOptionPane.showMessageDialog(newStudent.this,"New student is added to the records");
+					JOptionPane.showMessageDialog(editStudent.this,"Student details updated !");
 					student.main(new String[]{});
 					mainframe.dispose();
 					
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(newStudent.this,"Sorry, we are not able to please. Please try again !");
+					JOptionPane.showMessageDialog(editStudent.this,"Sorry, we are not able to update. Please try again !");
 				}
 				
 				/* 
@@ -153,7 +149,7 @@ public class newStudent extends JFrame {
 						.addGroup(mainLayout.createParallelGroup(Alignment.LEADING)
 							.addGroup(mainLayout.createSequentialGroup()
 								.addGap(150)
-								.addComponent(labelNewStudent))
+								.addComponent(labeleditStudent))
 							.addGroup(mainLayout.createSequentialGroup()
 								.addGap(30)
 								.addGroup(mainLayout.createParallelGroup(Alignment.LEADING, false)
@@ -182,7 +178,7 @@ public class newStudent extends JFrame {
 			mainLayout.setVerticalGroup(
 				mainLayout.createParallelGroup(Alignment.LEADING)
 					.addGroup(mainLayout.createSequentialGroup()
-						.addComponent(labelNewStudent)
+						.addComponent(labeleditStudent)
 						.addGap(50)
 						.addGroup(mainLayout.createParallelGroup(Alignment.BASELINE)
 							.addComponent(labelname)
@@ -212,7 +208,7 @@ public class newStudent extends JFrame {
 			contentPane.setLayout(mainLayout);
 	}
 	/*
-	 * Public class newStudent ended here
+	 * Public class editStudent ended here
 	 */
 	
 	
