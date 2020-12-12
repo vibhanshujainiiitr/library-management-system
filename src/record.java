@@ -63,8 +63,11 @@ public class record extends JFrame {
 	    allBooks.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		allBooks.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			allbooks.main(new String[]{});
-			mainframe.dispose();
+			/*
+			 * allbooks.main(new String[]{});
+			 * mainframe.dispose();
+			 */
+			JOptionPane.showMessageDialog(record.this,"This section is under development !");	
 			}
 		});
 		
@@ -72,8 +75,11 @@ public class record extends JFrame {
 		issuedBooks.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		issuedBooks.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			issuedbooks.main(new String[]{});
-			mainframe.dispose();
+			/*
+			 * issuedbooks.main(new String[]{});
+			 * mainframe.dispose();
+			 */
+			JOptionPane.showMessageDialog(record.this,"This section is under development !");	
 			}
 		});
 		
