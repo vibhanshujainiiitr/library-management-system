@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
@@ -17,7 +18,7 @@ public class newStudent extends JFrame {
 	private JTextField contact_field;
 	
 	private JTextField issuedBook;
-	/* Confused that wether to add here or not */
+	/* Confused that whether to add here or not */
 	
 	// The main application
 	public static void main (String[] args)
@@ -49,13 +50,13 @@ public class newStudent extends JFrame {
 		
 		JLabel labelNewStudent = new JLabel("Add new student");
 		labelNewStudent.setForeground(Color.GRAY);
-		labelNewStudent.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		labelNewStudent.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		
 		JLabel labelname = new JLabel("Name");
 		JLabel labelrollNumber = new JLabel("Roll No.");
 		JLabel labelclass = new JLabel("Class");
 		JLabel labelsection = new JLabel("Section");
-		JLabel labelcontact = new JLabel("Contact Number");
+		JLabel labelcontact = new JLabel("Contact");
 		
 		name_field = new JTextField();
 		name_field.setColumns(20);
@@ -105,16 +106,82 @@ public class newStudent extends JFrame {
 			
 			}
 			/*
-			 * The action listner ended here
+			 * The action listener ended here
 			 */
 		);
 		
+		/*
+		 * Creating new button for reachinng to home
+		 */
+		JButton btnHome = new JButton("Home");
+		GroupLayout mainLayout = new GroupLayout(contentPane);
+		
+		mainLayout.setHorizontalGroup(
+				mainLayout.createParallelGroup(Alignment.TRAILING)
+					.addGroup(mainLayout.createSequentialGroup()
+						.addGroup(mainLayout.createParallelGroup(Alignment.LEADING)
+							.addGroup(mainLayout.createSequentialGroup()
+								.addGap(150)
+								.addComponent(labelNewStudent))
+							.addGroup(mainLayout.createSequentialGroup()
+								.addGap(30)
+								.addGroup(mainLayout.createParallelGroup(Alignment.LEADING, false)
+									.addComponent(labelname, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+									.addComponent(labelrollNumber, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+									.addComponent(labelclass, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+									.addComponent(labelsection, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+									.addComponent(labelcontact, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
+								.addGap(47)
+								.addGroup(mainLayout.createParallelGroup(Alignment.LEADING)
+									.addComponent(name_field, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
+									.addComponent(rollNo_field, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
+									.addComponent(studentClass_field, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
+									.addComponent(section_field, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
+									.addComponent(contact_field, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE))))
+						.addContainerGap(125, Short.MAX_VALUE))
+					.addGroup(Alignment.LEADING, mainLayout.createSequentialGroup()
+						.addGap(161)
+						.addComponent(btnAddStudent, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(50, Short.MAX_VALUE))
+					.addGroup(mainLayout.createSequentialGroup()
+						 .addContainerGap(350, Short.MAX_VALUE)
+						.addComponent(btnHome, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(100, Short.MAX_VALUE))
+			);
+			mainLayout.setVerticalGroup(
+				mainLayout.createParallelGroup(Alignment.LEADING)
+					.addGroup(mainLayout.createSequentialGroup()
+						.addComponent(labelNewStudent)
+						.addGap(50)
+						.addGroup(mainLayout.createParallelGroup(Alignment.BASELINE)
+							.addComponent(labelname)
+							.addComponent(name_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGap(30)
+						.addGroup(mainLayout.createParallelGroup(Alignment.BASELINE)
+							.addComponent(labelrollNumber)
+							.addComponent(rollNo_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGap(30)
+						.addGroup(mainLayout.createParallelGroup(Alignment.BASELINE)
+							.addComponent(labelclass)
+							.addComponent(studentClass_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGap(30)
+						.addGroup(mainLayout.createParallelGroup(Alignment.BASELINE)
+							.addComponent(labelsection)
+							.addComponent(section_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGap(30)
+						.addGroup(mainLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(labelcontact)
+								.addComponent(contact_field, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGap(30)
+						.addComponent(btnAddStudent, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(btnHome,  GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
+			);
+			contentPane.setLayout(mainLayout);
 	}
 	/*
-	 * Public class student ended here
+	 * Public class newStudent ended here
 	 */
 	
 	
 }
-
-
