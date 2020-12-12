@@ -81,7 +81,7 @@ public class student extends JFrame {
 		schStudent.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		schStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				searchStudent.main(new sString[]{});
+				searchStudent.main(new String[]{});
 				mainframe.dispose();
 			}
 		});
@@ -89,7 +89,7 @@ public class student extends JFrame {
 		home.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		home.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				home.setVisible(true);
+				home.main( new String[]{});
 				mainframe.dispose();
 			}
 		});
