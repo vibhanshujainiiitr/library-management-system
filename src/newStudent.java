@@ -4,8 +4,10 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
-import java.awt.event.*;;
+import java.awt.event.*;
 
+import com.mysql.*;
+import java.sql.*;
 
 public class newStudent extends JFrame {
 	
@@ -85,7 +87,29 @@ public class newStudent extends JFrame {
 				/*  We can also use type casting to convert the contact to store as integer numbers
 				 *  But in our case we can also save the mail ID too
 				 */
-				int i = newStudentAdd.save( name, rollNo, studentClass, section, contact );
+				
+				/*
+				 * Adding the new student to the database
+				 */
+				int i = 0;
+				try
+				{
+					Connection con = database.getConnection();
+					PreparedStatement student = con.prepareStatement("insert into student(name, rollno, studentclass, section, contact, issuedbooks) values(?,?,?,?,?,?");
+					
+					student.setString(1, name);
+					student.setString(2, rollNo);
+					student.setString(3, studentClass);
+					student.setString(4, section);
+					student.setString(5, contact);
+					student.setString(6, null );
+					i = student.executeUpdate();
+					con.close();
+				}
+				catch(Exception ae)
+				{
+					System.out.println(ae);
+				}
 				
 				if(i>0)
 				{
