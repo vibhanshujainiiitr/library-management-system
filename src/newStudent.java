@@ -139,6 +139,13 @@ public class newStudent extends JFrame {
 		 */
 		JButton btnHome = new JButton("Home");
 		GroupLayout mainLayout = new GroupLayout(contentPane);
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			home.main(new String[]{});
+			mainframe.dispose();
+			}
+		});
+		
 		
 		mainLayout.setHorizontalGroup(
 				mainLayout.createParallelGroup(Alignment.TRAILING)

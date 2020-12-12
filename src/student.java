@@ -59,7 +59,7 @@ public class student extends JFrame {
 			}
 		});
 		
-		JButton delStudent = new JButton("Issue Book");
+		JButton delStudent = new JButton("Delete Student");
 		delStudent.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		delStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -68,7 +68,7 @@ public class student extends JFrame {
 			}
 		});
 		
-		JButton editDetails = new JButton("Return Book");
+		JButton editDetails = new JButton("Edit Student");
 		editDetails.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		editDetails.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -77,7 +77,7 @@ public class student extends JFrame {
 			}
 		});
 		
-		JButton schStudent = new JButton("Book Record");
+		JButton schStudent = new JButton("Search Student");
 		schStudent.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		schStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -85,14 +85,15 @@ public class student extends JFrame {
 				mainframe.dispose();
 			}
 		});
-		JButton home = new JButton("Home");
-		home.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		home.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				home.main( new String[]{});
-				mainframe.dispose();
+		JButton btnhome = new JButton("btnhome");
+		btnhome.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnhome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			home.main(new String[]{});
+			mainframe.dispose();
 			}
 		});
+		
 		
 		
 		
@@ -110,7 +111,7 @@ public class student extends JFrame {
 						.addComponent(delStudent, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
 						.addComponent(editDetails, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
 						.addComponent(schStudent, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
-	      				.addComponent(home, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE))
+	      				.addComponent(btnhome, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(109, Short.MAX_VALUE)
 		 ));
 		gl_contentPane.setVerticalGroup(
@@ -126,7 +127,7 @@ public class student extends JFrame {
 					.addGap(18)
 					.addComponent(schStudent, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(home, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnhome, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(21, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
