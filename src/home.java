@@ -68,11 +68,11 @@ public class home extends JFrame {
 			}
 		});
 		
-		JButton returnBook = new JButton("Return Book");
-		returnBook.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		returnBook.addActionListener(new ActionListener() {
+		JButton btnreturnBook = new JButton("Return Book");
+		btnreturnBook.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnreturnBook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			return_book.main(new String[]{});
+			returnBook.main(new String[]{});
 			mainframe.dispose();
 			}
 		});
@@ -81,7 +81,7 @@ public class home extends JFrame {
 		bookRecord.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		bookRecord.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				record.main(new sString[]{});
+				record.main(new String[]{});
 				mainframe.dispose();
 			}
 		});
@@ -107,7 +107,7 @@ public class home extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(studentPanel, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
 						.addComponent(issueBook, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
-						.addComponent(returnBook, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnreturnBook, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
 						.addComponent(bookRecord, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
 	      				.addComponent(exit, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(109, Short.MAX_VALUE)
@@ -121,7 +121,7 @@ public class home extends JFrame {
 					.addGap(18)
 					.addComponent(issueBook, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addComponent(returnBook, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnreturnBook, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(bookRecord, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
